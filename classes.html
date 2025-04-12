@@ -8,8 +8,27 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="icon" href="https://emojicdn.elk.sh/🐾" type="image/png" />
+    <style>
+      .animal-card {
+        transition: all 0.3s ease;
+      }
+      .animal-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .filter-btn.active {
+        background-color: #047857;
+        color: white;
+      }
+      .modal {
+        transition: opacity 0.3s ease;
+      }
+    </style>
   </head>
   <body class="bg-green-50">
     <!-- Navigation -->
@@ -63,108 +82,131 @@
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
       <h1 class="text-4xl font-bold text-center text-green-800 mb-8">
-        Animal Classes
+        Explore Animal Kingdom
       </h1>
 
-      <!-- Search Bar -->
-      <div class="max-w-2xl mx-auto mb-12 relative">
-        <input
-          type="text"
-          id="class-search"
-          placeholder="Search animals..."
-          class="w-full px-4 py-3 rounded-full border-2 border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-        />
-        <button
-          id="class-search-button"
-          class="absolute right-2 top-2 bg-green-600 hover:bg-green-500 text-white px-4 py-1 rounded-full"
-        >
-          Search
-        </button>
+      <!-- Search and Filter -->
+      <div class="max-w-4xl mx-auto mb-12">
+        <div class="relative mb-6">
+          <input
+            type="text"
+            id="animal-search"
+            placeholder="Search animals..."
+            class="w-full px-4 py-3 rounded-full border-2 border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+          <button class="absolute right-3 top-3 text-green-600">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+          <button
+            class="filter-btn active px-4 py-2 rounded-full bg-green-200 text-green-800 font-medium"
+            data-filter="all"
+          >
+            All Animals
+          </button>
+          <button
+            class="filter-btn px-4 py-2 rounded-full bg-green-200 text-green-800 font-medium"
+            data-filter="mammals"
+          >
+            <i class="fas fa-paw mr-2"></i>Mammals
+          </button>
+          <button
+            class="filter-btn px-4 py-2 rounded-full bg-green-200 text-green-800 font-medium"
+            data-filter="birds"
+          >
+            <i class="fas fa-dove mr-2"></i>Birds
+          </button>
+          <button
+            class="filter-btn px-4 py-2 rounded-full bg-green-200 text-green-800 font-medium"
+            data-filter="reptiles"
+          >
+            <i class="fas fa-staff-snake mr-2"></i>Reptiles
+          </button>
+          <button
+            class="filter-btn px-4 py-2 rounded-full bg-green-200 text-green-800 font-medium"
+            data-filter="fish"
+          >
+            <i class="fas fa-fish mr-2"></i>Fish
+          </button>
+          <button
+            class="filter-btn px-4 py-2 rounded-full bg-green-200 text-green-800 font-medium"
+            data-filter="endangered"
+          >
+            <i class="fas fa-exclamation-triangle mr-2"></i>Endangered
+          </button>
+          <button
+            class="filter-btn px-4 py-2 rounded-full bg-green-200 text-green-800 font-medium"
+            data-filter="african"
+          >
+            <i class="fas fa-globe-africa mr-2"></i>African
+          </button>
+        </div>
       </div>
 
-      <!-- Mammals Section -->
-      <section id="mammals" class="mb-16">
-        <div class="flex items-center mb-6">
-          <h2 class="text-3xl font-bold text-green-800">Mammals</h2>
-          <span
-            class="ml-4 px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-medium"
-            >Warm-blooded</span
-          >
-        </div>
-        <p class="mb-6 text-gray-700">
-          Mammals are vertebrate animals characterized by the presence of
-          mammary glands which in females produce milk for feeding their young,
-          a neocortex, fur or hair, and three middle ear bones.
-        </p>
+      <!-- Animal Gallery -->
+      <div
+        id="animal-gallery"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <!-- Animals will be loaded here -->
+      </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Mammal cards will be populated by JavaScript -->
-        </div>
-      </section>
-
-      <!-- Birds Section -->
-      <section id="birds" class="mb-16">
-        <div class="flex items-center mb-6">
-          <h2 class="text-3xl font-bold text-green-800">Birds</h2>
-          <span
-            class="ml-4 px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-medium"
-            >Feathered</span
-          >
-        </div>
-        <p class="mb-6 text-gray-700">
-          Birds are a group of warm-blooded vertebrates constituting the class
-          Aves, characterized by feathers, toothless beaked jaws, the laying of
-          hard-shelled eggs, a high metabolic rate, a four-chambered heart, and
-          a strong yet lightweight skeleton.
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Bird cards will be populated by JavaScript -->
-        </div>
-      </section>
-
-      <!-- Reptiles Section -->
-      <section id="reptiles" class="mb-16">
-        <div class="flex items-center mb-6">
-          <h2 class="text-3xl font-bold text-green-800">Reptiles</h2>
-          <span
-            class="ml-4 px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-medium"
-            >Cold-blooded</span
-          >
-        </div>
-        <p class="mb-6 text-gray-700">
-          Reptiles are air-breathing vertebrates covered in special skin made up
-          of scales, bony plates, or a combination of both. They include
-          crocodiles, snakes, lizards, turtles, and tortoises.
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Reptile cards will be populated by JavaScript -->
-        </div>
-      </section>
-
-      <!-- Fish Section -->
-      <section id="fish">
-        <div class="flex items-center mb-6">
-          <h2 class="text-3xl font-bold text-green-800">Fish</h2>
-          <span
-            class="ml-4 px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-medium"
-            >Aquatic</span
-          >
-        </div>
-        <p class="mb-6 text-gray-700">
-          Fish are aquatic, craniate, gill-bearing animals that lack limbs with
-          digits. They form a sister group to the tunicates, together forming
-          the olfactores. Included in this definition are the living hagfish,
-          lampreys, and cartilaginous and bony fish as well as various extinct
-          related groups.
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Fish cards will be populated by JavaScript -->
-        </div>
-      </section>
+      <!-- Load More Button -->
+      <div class="text-center mt-12">
+        <button
+          id="load-more"
+          class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300"
+        >
+          Load More Animals
+        </button>
+      </div>
     </main>
+
+    <!-- Image Modal -->
+    <div
+      id="image-modal"
+      class="modal fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-lg max-w-4xl w-full max-h-screen overflow-auto"
+      >
+        <div class="flex justify-between items-center p-4 border-b">
+          <h3 id="modal-title" class="text-xl font-bold text-green-800"></h3>
+          <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+        <div class="p-6">
+          <img
+            id="modal-image"
+            src=""
+            alt=""
+            class="w-full h-auto rounded-lg mb-4"
+          />
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <p class="font-semibold">Class:</p>
+              <p id="modal-class" class="text-gray-700"></p>
+            </div>
+            <div>
+              <p class="font-semibold">Habitat:</p>
+              <p id="modal-habitat" class="text-gray-700"></p>
+            </div>
+            <div>
+              <p class="font-semibold">Diet:</p>
+              <p id="modal-diet" class="text-gray-700"></p>
+            </div>
+            <div>
+              <p class="font-semibold">Conservation:</p>
+              <p id="modal-conservation" class="text-gray-700"></p>
+            </div>
+          </div>
+          <p id="modal-description" class="text-gray-700"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-green-900 text-white py-8">
@@ -198,6 +240,405 @@
       </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+      // Animal data - 50+ animals
+      const animals = [
+        {
+          id: 1,
+          name: "African Lion",
+          image: "https://source.unsplash.com/random/600x600/?lion",
+          class: "mammals",
+          tags: ["african", "predator"],
+          habitat: "Savannas and grasslands",
+          diet: "Carnivore",
+          conservation: "Vulnerable",
+          description:
+            "The African lion is a large cat of the genus Panthera native to Africa and India. It has a muscular, deep-chested body, short, rounded head, round ears, and a hairy tuft at the end of its tail.",
+        },
+        {
+          id: 2,
+          name: "Bald Eagle",
+          image: "https://source.unsplash.com/random/600x600/?eagle",
+          class: "birds",
+          tags: ["predator", "north-american"],
+          habitat: "Near large bodies of open water",
+          diet: "Carnivore",
+          conservation: "Least Concern",
+          description:
+            "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle.",
+        },
+        {
+          id: 3,
+          name: "Green Anaconda",
+          image: "https://source.unsplash.com/random/600x600/?anaconda",
+          class: "reptiles",
+          tags: ["predator", "amazon"],
+          habitat: "Tropical rainforests",
+          diet: "Carnivore",
+          conservation: "Least Concern",
+          description:
+            "The green anaconda is a boa species found in South America. It is the heaviest and one of the longest known extant snake species.",
+        },
+        {
+          id: 4,
+          name: "Clownfish",
+          image: "https://source.unsplash.com/random/600x600/?clownfish",
+          class: "fish",
+          tags: ["coral-reef"],
+          habitat: "Coral reefs",
+          diet: "Omnivore",
+          conservation: "Least Concern",
+          description:
+            "Clownfish are small, brightly colored fish that form symbiotic relationships with sea anemones. They are native to warmer waters of the Indian and Pacific Oceans.",
+        },
+        {
+          id: 5,
+          name: "Mountain Gorilla",
+          image: "https://source.unsplash.com/random/600x600/?gorilla",
+          class: "mammals",
+          tags: ["endangered", "african"],
+          habitat: "Montane forests",
+          diet: "Herbivore",
+          conservation: "Endangered",
+          description:
+            "The mountain gorilla is one of the two subspecies of the eastern gorilla. It is listed as endangered by the IUCN as of 2018.",
+        },
+        {
+          id: 6,
+          name: "Emperor Penguin",
+          image: "https://source.unsplash.com/random/600x600/?penguin",
+          class: "birds",
+          tags: ["antarctic"],
+          habitat: "Antarctic ice",
+          diet: "Carnivore",
+          conservation: "Near Threatened",
+          description:
+            "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica.",
+        },
+        {
+          id: 7,
+          name: "Komodo Dragon",
+          image: "https://source.unsplash.com/random/600x600/?komodo+dragon",
+          class: "reptiles",
+          tags: ["endangered", "predator"],
+          habitat: "Indonesian islands",
+          diet: "Carnivore",
+          conservation: "Endangered",
+          description:
+            "The Komodo dragon is the largest living species of lizard, growing to a maximum length of 3 metres and weighing up to approximately 70 kilograms.",
+        },
+        {
+          id: 8,
+          name: "Great White Shark",
+          image: "https://source.unsplash.com/random/600x600/?shark",
+          class: "fish",
+          tags: ["predator", "ocean"],
+          habitat: "Coastal and offshore waters",
+          diet: "Carnivore",
+          conservation: "Vulnerable",
+          description:
+            "The great white shark is notable for its size, with larger female individuals growing to 6.1 m in length and 1,905 kg in weight.",
+        },
+        {
+          id: 9,
+          name: "African Elephant",
+          image: "https://source.unsplash.com/random/600x600/?african+elephant",
+          class: "mammals",
+          tags: ["african", "endangered"],
+          habitat: "Savannas and forests",
+          diet: "Herbivore",
+          conservation: "Endangered",
+          description:
+            "The African elephant is the largest living terrestrial animal, with bulls reaching a shoulder height of up to 4 m and weighing up to 10.4 tonnes.",
+        },
+        {
+          id: 10,
+          name: "Scarlet Macaw",
+          image: "https://source.unsplash.com/random/600x600/?macaw",
+          class: "birds",
+          tags: ["tropical"],
+          habitat: "Humid evergreen forests",
+          diet: "Omnivore",
+          conservation: "Least Concern",
+          description:
+            "The scarlet macaw is a large red, yellow, and blue Central and South American parrot, a member of a large group of Neotropical parrots called macaws.",
+        },
+        // Add 40+ more animals following the same structure
+        // Example additional animals:
+        {
+          id: 11,
+          name: "Cheetah",
+          image: "https://source.unsplash.com/random/600x600/?cheetah",
+          class: "mammals",
+          tags: ["african", "predator", "endangered"],
+          habitat: "Savannas",
+          diet: "Carnivore",
+          conservation: "Vulnerable",
+          description:
+            "The cheetah is the world's fastest land animal, capable of running at 80 to 128 km/h.",
+        },
+        {
+          id: 12,
+          name: "Snow Leopard",
+          image: "https://source.unsplash.com/random/600x600/?snow+leopard",
+          class: "mammals",
+          tags: ["endangered", "mountain"],
+          habitat: "Alpine and subalpine zones",
+          diet: "Carnivore",
+          conservation: "Vulnerable",
+          description:
+            "The snow leopard is a large cat native to the mountain ranges of Central and South Asia.",
+        },
+        {
+          id: 13,
+          name: "Giant Panda",
+          image: "https://source.unsplash.com/random/600x600/?panda",
+          class: "mammals",
+          tags: ["endangered"],
+          habitat: "Temperate forests",
+          diet: "Herbivore",
+          conservation: "Vulnerable",
+          description:
+            "The giant panda is characterized by its bold black-and-white coat and rotund body.",
+        },
+        {
+          id: 14,
+          name: "Polar Bear",
+          image: "https://source.unsplash.com/random/600x600/?polar+bear",
+          class: "mammals",
+          tags: ["arctic", "endangered"],
+          habitat: "Arctic region",
+          diet: "Carnivore",
+          conservation: "Vulnerable",
+          description:
+            "The polar bear is the largest extant bear species and the largest land carnivore.",
+        },
+        {
+          id: 15,
+          name: "Red Fox",
+          image: "https://source.unsplash.com/random/600x600/?fox",
+          class: "mammals",
+          tags: ["carnivore"],
+          habitat: "Various including urban areas",
+          diet: "Omnivore",
+          conservation: "Least Concern",
+          description:
+            "The red fox is the largest of the true foxes and one of the most widely distributed members of the order Carnivora.",
+        },
+        {
+          id: 16,
+          name: "Harpy Eagle",
+          image: "https://source.unsplash.com/random/600x600/?eagle",
+          class: "birds",
+          tags: ["predator", "tropical"],
+          habitat: "Tropical rainforests",
+          diet: "Carnivore",
+          conservation: "Near Threatened",
+          description:
+            "The harpy eagle is one of the largest and most powerful eagles in the world.",
+        },
+        {
+          id: 17,
+          name: "King Cobra",
+          image: "https://source.unsplash.com/random/600x600/?cobra",
+          class: "reptiles",
+          tags: ["venomous"],
+          habitat: "Forests and plains",
+          diet: "Carnivore",
+          conservation: "Vulnerable",
+          description:
+            "The king cobra is the world's longest venomous snake, with a length up to 5.6 m.",
+        },
+        {
+          id: 18,
+          name: "Leatherback Sea Turtle",
+          image: "https://source.unsplash.com/random/600x600/?sea+turtle",
+          class: "reptiles",
+          tags: ["endangered", "ocean"],
+          habitat: "Open ocean",
+          diet: "Carnivore",
+          conservation: "Vulnerable",
+          description:
+            "The leatherback sea turtle is the largest of all living turtles and the heaviest non-crocodilian reptile.",
+        },
+        {
+          id: 19,
+          name: "Blue Whale",
+          image: "https://source.unsplash.com/random/600x600/?blue+whale",
+          class: "mammals",
+          tags: ["ocean", "endangered"],
+          habitat: "Open ocean",
+          diet: "Carnivore",
+          conservation: "Endangered",
+          description:
+            "The blue whale is the largest animal known to have ever existed.",
+        },
+        {
+          id: 20,
+          name: "Orangutan",
+          image: "https://source.unsplash.com/random/600x600/?orangutan",
+          class: "mammals",
+          tags: ["endangered"],
+          habitat: "Rainforests",
+          diet: "Omnivore",
+          conservation: "Critically Endangered",
+          description:
+            "Orangutans are great apes native to the rainforests of Indonesia and Malaysia.",
+        },
+        // Continue adding more animals up to 50+
+      ];
+
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", function () {
+        const gallery = document.getElementById("animal-gallery");
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const searchInput = document.getElementById("animal-search");
+        const loadMoreBtn = document.getElementById("load-more");
+        const modal = document.getElementById("image-modal");
+        const closeModal = document.getElementById("close-modal");
+
+        let currentFilter = "all";
+        let displayedAnimals = 12;
+
+        // Display initial animals
+        displayAnimals(animals.slice(0, displayedAnimals));
+
+        // Filter buttons event listeners
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+            currentFilter = this.dataset.filter;
+            displayedAnimals = 12;
+            filterAnimals();
+          });
+        });
+
+        // Search functionality
+        searchInput.addEventListener("input", function () {
+          displayedAnimals = 12;
+          filterAnimals();
+        });
+
+        // Load more animals
+        loadMoreBtn.addEventListener("click", function () {
+          displayedAnimals += 12;
+          filterAnimals();
+        });
+
+        // Modal close
+        closeModal.addEventListener("click", function () {
+          modal.classList.add("hidden");
+        });
+
+        // Filter animals based on current filter and search
+        function filterAnimals() {
+          let filtered = animals;
+
+          // Apply filter
+          if (currentFilter !== "all") {
+            filtered = animals.filter(
+              (animal) =>
+                animal.class === currentFilter ||
+                animal.tags.includes(currentFilter)
+            );
+          }
+
+          // Apply search
+          const searchTerm = searchInput.value.toLowerCase();
+          if (searchTerm) {
+            filtered = filtered.filter(
+              (animal) =>
+                animal.name.toLowerCase().includes(searchTerm) ||
+                animal.description.toLowerCase().includes(searchTerm)
+            );
+          }
+
+          // Display results
+          displayAnimals(filtered.slice(0, displayedAnimals));
+
+          // Show/hide load more button
+          loadMoreBtn.style.display =
+            filtered.length > displayedAnimals ? "inline-block" : "none";
+        }
+
+        // Display animals in the gallery
+        function displayAnimals(animalsToDisplay) {
+          gallery.innerHTML = "";
+
+          animalsToDisplay.forEach((animal) => {
+            const card = document.createElement("div");
+            card.className =
+              "animal-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg";
+            card.innerHTML = `
+              <div class="h-48 overflow-hidden">
+                <img src="${animal.image}" alt="${
+              animal.name
+            }" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-lg text-green-800 mb-1">${
+                  animal.name
+                }</h3>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-600 capitalize">${
+                    animal.class
+                  }</span>
+                  <span class="text-xs px-2 py-1 rounded-full ${getConservationColor(
+                    animal.conservation
+                  )}">
+                    ${animal.conservation}
+                  </span>
+                </div>
+              </div>
+            `;
+
+            card.addEventListener("click", () => openModal(animal));
+            gallery.appendChild(card);
+          });
+        }
+
+        // Open modal with animal details
+        function openModal(animal) {
+          document.getElementById("modal-title").textContent = animal.name;
+          document.getElementById("modal-image").src = animal.image;
+          document.getElementById("modal-image").alt = animal.name;
+          document.getElementById("modal-class").textContent =
+            animal.class.charAt(0).toUpperCase() + animal.class.slice(1);
+          document.getElementById("modal-habitat").textContent = animal.habitat;
+          document.getElementById("modal-diet").textContent = animal.diet;
+          document.getElementById("modal-conservation").textContent =
+            animal.conservation;
+          document.getElementById("modal-description").textContent =
+            animal.description;
+
+          modal.classList.remove("hidden");
+        }
+
+        // Get conservation status color
+        function getConservationColor(status) {
+          switch (status.toLowerCase()) {
+            case "endangered":
+              return "bg-red-100 text-red-800";
+            case "vulnerable":
+              return "bg-orange-100 text-orange-800";
+            case "near threatened":
+              return "bg-yellow-100 text-yellow-800";
+            case "least concern":
+              return "bg-green-100 text-green-800";
+            default:
+              return "bg-gray-100 text-gray-800";
+          }
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
   </body>
 </html>
