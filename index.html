@@ -95,7 +95,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Mammals -->
         <a
-          href="classes.html#mammals"
+          href="classes.html?filter=mammals"
           class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
         >
           <img
@@ -111,7 +111,7 @@
 
         <!-- Birds -->
         <a
-          href="classes.html#birds"
+          href="classes.html?filter=birds"
           class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
         >
           <img
@@ -129,7 +129,7 @@
 
         <!-- Reptiles -->
         <a
-          href="classes.html#reptiles"
+          href="classes.html?filter=reptiles"
           class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
         >
           <img
@@ -145,7 +145,7 @@
 
         <!-- Fish -->
         <a
-          href="classes.html#fish"
+          href="classes.html?filter=fish"
           class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
         >
           <img
@@ -168,7 +168,55 @@
           Featured Animals
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Animal cards will be populated by JavaScript -->
+          <!-- Featured Mammal -->
+          <a
+            href="classes.html?filter=mammals"
+            class="animal-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="Lion"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-green-800">African Lion</h3>
+              <p class="text-green-600">Mammal</p>
+            </div>
+          </a>
+
+          <!-- Featured Bird -->
+          <a
+            href="classes.html?filter=birds"
+            class="animal-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="Crane"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-green-800">
+                Grey Crowned Crane
+              </h3>
+              <p class="text-green-600">Bird</p>
+            </div>
+          </a>
+
+          <!-- Featured Reptile -->
+          <a
+            href="classes.html?filter=reptiles"
+            class="animal-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="https://images.pexels.com/photos/162140/animal-chameleon-reptile-wildlife-162140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="Chameleon"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-green-800">Chameleon</h3>
+              <p class="text-green-600">Reptile</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -230,5 +278,34 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+
+      // Search functionality
+      document
+        .getElementById("search-button")
+        .addEventListener("click", function () {
+          const searchTerm = document.getElementById("search-input").value;
+          if (searchTerm) {
+            window.location.href = `classes.html?search=${encodeURIComponent(
+              searchTerm
+            )}`;
+          }
+        });
+
+      // Allow search on Enter key
+      document
+        .getElementById("search-input")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            document.getElementById("search-button").click();
+          }
+        });
+    </script>
   </body>
 </html>
