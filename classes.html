@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal Classes | Animukuvi</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="https://emojicdn.elk.sh/🐾" type="image/png" />
+  </head>
+  <body class="bg-green-50">
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white shadow-lg">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl">🐾</span>
+          <a href="index.html" class="text-2xl font-bold">Animukuvi</a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="index.html" class="hover:text-green-200 font-medium">Home</a>
+          <a
+            href="classes.html"
+            class="hover:text-green-200 font-medium border-b-2 border-white"
+            >Animal Classes</a
+          >
+          <a href="about.html" class="hover:text-green-200 font-medium"
+            >About</a
+          >
+        </div>
+        <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-green-700 px-4 py-2">
+        <a href="index.html" class="block py-2 hover:text-green-200">Home</a>
+        <a
+          href="classes.html"
+          class="block py-2 hover:text-green-200 border-l-4 border-white pl-2"
+          >Animal Classes</a
+        >
+        <a href="about.html" class="block py-2 hover:text-green-200">About</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold text-center text-green-800 mb-8">
+        Animal Classes
+      </h1>
+
+      <!-- Search Bar -->
+      <div class="max-w-2xl mx-auto mb-12 relative">
+        <input
+          type="text"
+          id="class-search"
+          placeholder="Search animals..."
+          class="w-full px-4 py-3 rounded-full border-2 border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+        />
+        <button
+          id="class-search-button"
+          class="absolute right-2 top-2 bg-green-600 hover:bg-green-500 text-white px-4 py-1 rounded-full"
+        >
+          Search
+        </button>
+      </div>
+
+      <!-- Mammals Section -->
+      <section id="mammals" class="mb-16">
+        <div class="flex items-center mb-6">
+          <h2 class="text-3xl font-bold text-green-800">Mammals</h2>
+          <span
+            class="ml-4 px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-medium"
+            >Warm-blooded</span
+          >
+        </div>
+        <p class="mb-6 text-gray-700">
+          Mammals are vertebrate animals characterized by the presence of
+          mammary glands which in females produce milk for feeding their young,
+          a neocortex, fur or hair, and three middle ear bones.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Mammal cards will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Birds Section -->
+      <section id="birds" class="mb-16">
+        <div class="flex items-center mb-6">
+          <h2 class="text-3xl font-bold text-green-800">Birds</h2>
+          <span
+            class="ml-4 px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-medium"
+            >Feathered</span
+          >
+        </div>
+        <p class="mb-6 text-gray-700">
+          Birds are a group of warm-blooded vertebrates constituting the class
+          Aves, characterized by feathers, toothless beaked jaws, the laying of
+          hard-shelled eggs, a high metabolic rate, a four-chambered heart, and
+          a strong yet lightweight skeleton.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Bird cards will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Reptiles Section -->
+      <section id="reptiles" class="mb-16">
+        <div class="flex items-center mb-6">
+          <h2 class="text-3xl font-bold text-green-800">Reptiles</h2>
+          <span
+            class="ml-4 px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-medium"
+            >Cold-blooded</span
+          >
+        </div>
+        <p class="mb-6 text-gray-700">
+          Reptiles are air-breathing vertebrates covered in special skin made up
+          of scales, bony plates, or a combination of both. They include
+          crocodiles, snakes, lizards, turtles, and tortoises.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Reptile cards will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Fish Section -->
+      <section id="fish">
+        <div class="flex items-center mb-6">
+          <h2 class="text-3xl font-bold text-green-800">Fish</h2>
+          <span
+            class="ml-4 px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-medium"
+            >Aquatic</span
+          >
+        </div>
+        <p class="mb-6 text-gray-700">
+          Fish are aquatic, craniate, gill-bearing animals that lack limbs with
+          digits. They form a sister group to the tunicates, together forming
+          the olfactores. Included in this definition are the living hagfish,
+          lampreys, and cartilaginous and bony fish as well as various extinct
+          related groups.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Fish cards will be populated by JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">🐾</span>
+              <span class="text-xl font-bold">Animukuvi</span>
+            </div>
+            <p class="mt-2 text-green-300">
+              Discover the beauty of the animal kingdom
+            </p>
+          </div>
+          <div class="flex space-x-6">
+            <a href="#" class="hover:text-green-300">Privacy Policy</a>
+            <a href="#" class="hover:text-green-300">Terms of Service</a>
+            <a href="about.html" class="hover:text-green-300">About Us</a>
+            <a href="#" class="hover:text-green-300">Contact</a>
+          </div>
+        </div>
+        <div
+          class="mt-8 pt-6 border-t border-green-800 text-center text-green-400"
+        >
+          <p>&copy; 2023 Animukuvi. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

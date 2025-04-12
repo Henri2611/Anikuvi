@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animukuvi - Discover the Animal Kingdom</title>
+    <meta
+      name="description"
+      content="Explore beautiful images of animals from all over the world with Animukuvi"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="https://emojicdn.elk.sh/🐾" type="image/png" />
+  </head>
+  <body class="bg-green-50">
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white shadow-lg">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl">🐾</span>
+          <a href="index.html" class="text-2xl font-bold">Animukuvi</a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="index.html" class="hover:text-green-200 font-medium">Home</a>
+          <a href="classes.html" class="hover:text-green-200 font-medium"
+            >Animal Classes</a
+          >
+          <a href="about.html" class="hover:text-green-200 font-medium"
+            >About</a
+          >
+        </div>
+        <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-green-700 px-4 py-2">
+        <a href="index.html" class="block py-2 hover:text-green-200">Home</a>
+        <a href="classes.html" class="block py-2 hover:text-green-200"
+          >Animal Classes</a
+        >
+        <a href="about.html" class="block py-2 hover:text-green-200">About</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-green-700 text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Discover the Animal Kingdom
+        </h1>
+        <p class="text-xl md:text-2xl mb-8">
+          Explore beautiful images and fascinating facts about animals from
+          around the world
+        </p>
+        <div class="max-w-md mx-auto relative">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search for animals..."
+            class="w-full px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <button
+            id="search-button"
+            class="absolute right-2 top-2 bg-green-600 hover:bg-green-500 text-white px-4 py-1 rounded-full"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Classes -->
+    <section class="py-12 container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-green-800 mb-8">
+        Animal Classes
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Mammals -->
+        <a
+          href="classes.html#mammals"
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+        >
+          <img
+            src="https://source.unsplash.com/random/400x300/?lion"
+            alt="Mammals"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 bg-green-100">
+            <h3 class="text-xl font-semibold text-green-800">Mammals</h3>
+            <p class="text-green-600">Warm-blooded vertebrates with hair</p>
+          </div>
+        </a>
+
+        <!-- Birds -->
+        <a
+          href="classes.html#birds"
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+        >
+          <img
+            src="https://source.unsplash.com/random/400x300/?eagle"
+            alt="Birds"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 bg-green-100">
+            <h3 class="text-xl font-semibold text-green-800">Birds</h3>
+            <p class="text-green-600">
+              Feathered, winged, egg-laying vertebrates
+            </p>
+          </div>
+        </a>
+
+        <!-- Reptiles -->
+        <a
+          href="classes.html#reptiles"
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+        >
+          <img
+            src="https://source.unsplash.com/random/400x300/?snake"
+            alt="Reptiles"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 bg-green-100">
+            <h3 class="text-xl font-semibold text-green-800">Reptiles</h3>
+            <p class="text-green-600">Cold-blooded vertebrates with scales</p>
+          </div>
+        </a>
+
+        <!-- Fish -->
+        <a
+          href="classes.html#fish"
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+        >
+          <img
+            src="https://source.unsplash.com/random/400x300/?clownfish"
+            alt="Fish"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 bg-green-100">
+            <h3 class="text-xl font-semibold text-green-800">Fish</h3>
+            <p class="text-green-600">Aquatic vertebrates with gills</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Featured Animals -->
+    <section class="py-12 bg-green-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-green-800 mb-8">
+          Featured Animals
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Animal cards will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-green-700 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+        <p class="mb-8 max-w-2xl mx-auto">
+          Subscribe to our newsletter to receive updates about new animal
+          additions and conservation news.
+        </p>
+        <form class="max-w-md mx-auto flex">
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="flex-grow px-4 py-3 rounded-l-full focus:outline-none text-gray-800"
+          />
+          <button
+            type="submit"
+            class="bg-green-900 hover:bg-green-800 px-6 py-3 rounded-r-full font-medium"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">🐾</span>
+              <span class="text-xl font-bold">Animukuvi</span>
+            </div>
+            <p class="mt-2 text-green-300">
+              Discover the beauty of the animal kingdom
+            </p>
+          </div>
+          <div class="flex space-x-6">
+            <a href="#" class="hover:text-green-300">Privacy Policy</a>
+            <a href="#" class="hover:text-green-300">Terms of Service</a>
+            <a href="about.html" class="hover:text-green-300">About Us</a>
+            <a href="#" class="hover:text-green-300">Contact</a>
+          </div>
+        </div>
+        <div
+          class="mt-8 pt-6 border-t border-green-800 text-center text-green-400"
+        >
+          <p>&copy; 2023 Animukuvi. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
